@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomePage } from './home.page';
+import { Routes, RouterModule } from '@angular/router';
 
+import { CustomerDashboardPage } from './customer-dashboard.page';
 
 const routes: Routes = [
   {
     path: 'tabs',
-    component: HomePage,
+    component: CustomerDashboardPage,
     children: [
       {
         path:'home',
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/home/home.module').then( m => m.HomePageModule)
+            loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
           }
         ]
       },
@@ -22,7 +22,7 @@ const routes: Routes = [
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/products/products.module').then( m => m.ProductsPageModule)
+            loadChildren: () => import('../products/products.module').then( m => m.ProductsPageModule)
           }
         ]
       },
@@ -31,7 +31,7 @@ const routes: Routes = [
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/cart/cart.module').then( m => m.CartPageModule)
+            loadChildren: () => import('../cart/cart.module').then( m => m.CartPageModule)
           }
         ]
       },
@@ -40,7 +40,7 @@ const routes: Routes = [
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/account/account.module').then( m => m.AccountPageModule)
+            loadChildren: () => import('../account/account.module').then( m => m.AccountPageModule)
           }
         ]
       },{
@@ -56,8 +56,9 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomePageRoutingModule {}
+export class CustomerDashboardPageRoutingModule {}
