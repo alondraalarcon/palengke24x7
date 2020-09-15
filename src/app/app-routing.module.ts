@@ -4,6 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: () => import('./pages/vendor-registration/vendor-registration.module').then( m => m.VendorRegistrationPageModule)
+  },
+  {
+    path: '',
     loadChildren: () => import('./pages/introduction/introduction.module').then( m => m.IntroductionPageModule)
   },
   {
@@ -33,6 +37,14 @@ const routes: Routes = [
   {
     path: 'introduction',
     loadChildren: () => import('./pages/introduction/introduction.module').then( m => m.IntroductionPageModule)
+  },
+  {
+    path: 'vendor-starter',
+    loadChildren: () => import('./pages/vendor-starter/vendor-starter.module').then( m => m.VendorStarterPageModule)
+  },
+  {
+    path: 'vendor-registration',
+    loadChildren: () => import('./pages/vendor-registration/vendor-registration.module').then( m => m.VendorRegistrationPageModule)
   }
 ];
 

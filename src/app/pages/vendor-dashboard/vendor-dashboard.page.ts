@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-vendor-dashboard',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorDashboardPage implements OnInit {
 
-  constructor() { }
+  constructor(private menu: MenuController) { }
+
+  openMenu() {
+    this.menu.open();
+  }
 
   ngOnInit() {
   }
