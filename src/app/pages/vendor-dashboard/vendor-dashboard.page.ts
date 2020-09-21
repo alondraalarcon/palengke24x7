@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -8,13 +9,16 @@ import { MenuController } from '@ionic/angular';
 })
 export class VendorDashboardPage implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  public folder: string;
+
+  constructor(private menu: MenuController, private activatedRoute: ActivatedRoute) { }
 
   openMenu() {
     this.menu.open();
   }
 
   ngOnInit() {
+    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
 }

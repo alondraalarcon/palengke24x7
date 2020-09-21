@@ -4,11 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/vendor-registration/vendor-registration.module').then( m => m.VendorRegistrationPageModule)
+    redirectTo: 'introduction',
+    pathMatch: 'full'
   },
   {
-    path: '',
-    loadChildren: () => import('./pages/introduction/introduction.module').then( m => m.IntroductionPageModule)
+    path: 'vendor-dashboard/:id',
+    loadChildren: () => import('./pages/vendor-dashboard/vendor-dashboard.module').then( m => m.VendorDashboardPageModule)
   },
   {
     path: 'single-product',
@@ -45,6 +46,34 @@ const routes: Routes = [
   {
     path: 'vendor-registration',
     loadChildren: () => import('./pages/vendor-registration/vendor-registration.module').then( m => m.VendorRegistrationPageModule)
+  },
+  {
+    path: 'vendor-home',
+    loadChildren: () => import('./pages/vendor-home/vendor-home.module').then( m => m.VendorHomePageModule)
+  },
+  {
+    path: 'vendor-edit-account',
+    loadChildren: () => import('./pages/vendor-edit-account/vendor-edit-account.module').then( m => m.VendorEditAccountPageModule)
+  },
+  {
+    path: 'vendor-store',
+    loadChildren: () => import('./pages/vendor-store/vendor-store.module').then( m => m.VendorStorePageModule)
+  },
+  {
+    path: 'vendor-settings',
+    loadChildren: () => import('./pages/vendor-settings/vendor-settings.module').then( m => m.VendorSettingsPageModule)
+  },
+  {
+    path: 'vendor-products',
+    loadChildren: () => import('./pages/vendor-products/vendor-products.module').then( m => m.VendorProductsPageModule)
+  },
+  {
+    path: 'vendor-orders',
+    loadChildren: () => import('./pages/vendor-orders/vendor-orders.module').then( m => m.VendorOrdersPageModule)
+  },
+  {
+    path: 'vendor-withdraw',
+    loadChildren: () => import('./pages/vendor-withdraw/vendor-withdraw.module').then( m => m.VendorWithdrawPageModule)
   }
 ];
 
